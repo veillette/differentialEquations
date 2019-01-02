@@ -1,0 +1,131 @@
+\textwidth 5in
+\textheight 45pc
+\evensidemargin 0in
+\oddsidemargin 0in
+\parskip=0pt
+\raggedbottom
+\setlength{\parindent}{10pt}
+\pagestyle{headings}
+
+\newtheorem{theorem}{\sc\bf Theorem}
+\newtheorem{example}{\sc\bf Example}
+
+\def\R{\mathbb R}
+\def\E{\mathbb E}
+
+\def\endproof{{\hfill \vbox{\hrule\hbox{
+   \vrule height1.3ex\hskip0.8ex\vrule}\hrule
+  }}\par}
+
+\newcommand{\markonleft}[1] {\hspace*{1em}{\rm Chapter \thechapter}
+{#1 }\hfill}
+
+\newcommand{\markonright}[1]
+{\hfill{{\rm Section \thesection} #1
+}\hspace*{1em}}
+
+\newcommand{\newsection}[3]{
+\setcounter{section}{#1}
+\label{sectionstart:\thesection}
+\setcounter{theorem}{0}
+\setcounter{example}{0}
+\setcounter{figure}{0}
+\setcounter{equation}{0}
+\markboth{\markonleft{#2}}{\markonright{#3}}
+\vskip7pt}
+
+\newcommand{\hint}[1]{{\sc Hint}:\ {\it #1}}
+\newcommand{\note}[1]{({\sc Note}:\ #1)}
+
+\newcommand{\svc}[1]{\mbox{\tiny{\bf #1}}}
+\newcommand{\flushtable}{\mbox{}\hskip-7pt}
+\renewcommand{\part}[1]{{\bf (#1)}}
+\newcommand{\dst}{\displaystyle}
+\newcommand{\set}[2]{\left\{#1\, \big|\, #2\right\}}
+\newcommand{\dist}{\mathop{\rm dist}}
+\newcommand{\adj}{\mathop{\rm adj}}
+\renewcommand{\limsup}{\mathop{\rm \overline{lim}}}
+\renewcommand{\liminf}{\mathop{\rm \underline{lim}}}
+\newcommand{\casespace}{\negthickspace\negthickspace}
+\newcommand{\ar}[1]{\hspace*{-.75em}&{#1}&\hspace*{-.75em}}
+\newcommand{\eq}{$\ar{$=$}$}
+\newcommand{\exer}[1]{\par\noindent{\bf #1}.}
+\newcommand{\answer}[1]{\;{\bf $\mathbf{#1}$ (p.~\pageref{exer:#1})}\;}
+\newcommand{\df}{=_{\mbox{\small df}}}
+\newcommand{\proof}{\noindent{\sc\bf Proof}\quad }
+\newcommand{\bbox}{\phantom{1}\hfill{\rule{6pt}{6pt}}}
+\newcommand{\helpbox}{\vspace*{-20pt}}
+\newcommand{\topfig}[1]{\newpage\mbox{}\newline\vspace*{#1pc}}
+\newcommand{\boxit}[1]{\medskip\noindent\textcolor{red}{#1}
+\vskip-6pt\hskip-\parindent}
+\newcommand{\twotab} {\begin{tabular}[t]{@{}p{168pt}@{}p{168pt}}}
+\newcommand{\threetab} {\begin{tabular}[t]{@{}p{112pt}@{}p{122pt}@{}p{112pt}}}
+\newcommand{\solution}{\vskip10pt\noindent{\sc\bf Solution }\  }
+
+\newcounter{place}
+\newcommand{\exercisetext}[1]{\setcounter{place}
+{\value{exercise}}\end{exerciselist}{\it #1}
+\begin{exerciselist}\setcounter{exercise}{\value{place}}}
+
+\newcommand{\arraytext}[1]{\noalign{\hspace*{-1.75em}
+\mbox{#1}\vspace*{-9\jot}}\nonumber\\}
+%this command comes after a \newline command (\\)
+
+\newcommand{\sectiontitle}[1]{\noindent{\color{red}\bf\thesection\small\bf\  #1}
+\vskip15pt}
+
+\newcommand{\chaptertitle}[1]{\vspace*{2.2pc}\begin{center}{\Huge\bf
+CHAPTER~\thechapter}\\\bigskip{\Huge\bf
+#1}\vskip4.8pc\label{sectionstart:\thesection}\end{center}}
+
+%\newcommand{\exercises}{
+%\bigskip{\centerline{\color{red}\large\bf\thesection\
+%Exercises}}\noindent\mbox{}\hrulefill\mbox{}\label{exerstart:\thesection}\vskip6pt\noindent}
+
+
+\newcommand{\exercises}{
+\bigskip{\centerline{\color{red}\large\bf\thesection\
+Exercises}}\noindent{\color{red}\mbox{}\hrulefill\mbox{}}\label{exerstart:\thesection}\vskip6pt\noindent}
+
+\newcounter{exercise}
+\newenvironment{exerciselist}{\begin{list}{\bf
+\arabic{exercise}.}
+{\topsep 10pt\partopsep 0pt\labelwidth 16pt
+\labelsep 12pt\leftmargin 28pt
+\itemsep 0pt\usecounter{exercise}}}{\end{list}}
+
+\newcounter{lcal}
+\newenvironment{alist}{\begin{list}{\bf (\alph{lcal})}
+{\topsep 0pt\partopsep 0pt\labelwidth 14pt
+\labelsep 8pt\leftmargin 22pt\itemsep 0pt
+\usecounter{lcal}}}{\end{list}}
+
+\newenvironment{Alist}{\begin{list}{\bf (\Alph{lcal})}
+{\topsep 0pt\partopsep 0pt\labelwidth 14pt
+\labelsep 8pt\leftmargin 22pt\itemsep 0pt
+\usecounter{lcal}}}{\end{list}}
+
+\newcounter{rm}
+\newenvironment{rmlist}{\begin{list}{\bf (\roman{rm})}
+{\topsep 0pt\partopsep 0pt\labelwidth 24pt
+\labelsep 8pt\leftmargin 32pt\itemsep 0pt
+\usecounter{rm}}}{\end{list}}
+
+\newenvironment{definition}[1]{
+\begin{trivlist}\item[]{\sc\bf Definition}\space
+\refstepcounter{theorem}{\bf\thetheorem}\
+ #1}{\end{trivlist}}
+
+\newenvironment{tindex}
+               {\if@twocolumn
+                  \@restonecolfalse
+                \else
+                  \@restonecoltrue
+                \fi
+                \columnseprule \z@
+                \columnsep 35\p@
+\twocolumn[\@makeschapterhead{\vspace*{18pt}\centerline{\Huge\bf Index}\vspace*{26pt}}]%
+                \thispagestyle{plain}\parindent\z@
+                \parskip\z@ \@plus .3\p@\relax
+                \let\item\@idxitem}
+               {\if@restonecol\onecolumn\else\clearpage\fi}
